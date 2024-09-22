@@ -6,7 +6,10 @@ const inputLine: string = await Bun.stdin.text();
 
 function matchPattern(inputLine: string, pattern: string): boolean {
   if (pattern.includes('\\d')) {
-    return /\d/g.test(inputLine)
+    return /\d/.test(inputLine)
+  }
+  if (pattern.includes('\\w')) {
+    return /\w/.test(inputLine)
   }
   else if (pattern.length >= 1) {
     return inputLine.includes(pattern);
