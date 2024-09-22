@@ -5,6 +5,9 @@ const pattern = args[3];
 const inputLine: string = await Bun.stdin.text();
 
 function matchPattern(inputLine: string, pattern: string): boolean {
+  if (/\[.*?\]/.test(pattern)) {
+    return new RegExp(pattern).test(inputLine)
+  }
   if (pattern.includes('\\d')) {
     return /\d/.test(inputLine)
   }
@@ -14,7 +17,7 @@ function matchPattern(inputLine: string, pattern: string): boolean {
   else if (pattern.length >= 1) {
     return inputLine.includes(pattern);
   } else {
-    throw new Error(`Unhandled pattern: ${pattern}`);
+    throw new Error(`Unhandled pattern: ${pattern} `);
   }
 }
 
