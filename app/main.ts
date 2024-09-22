@@ -1,10 +1,14 @@
+
 const args = process.argv;
 const pattern = args[3];
 
 const inputLine: string = await Bun.stdin.text();
 
 function matchPattern(inputLine: string, pattern: string): boolean {
-  if (pattern.length === 1) {
+  if (pattern.includes('\\d')) {
+    return /\d/g.test(inputLine)
+  }
+  else if (pattern.length >= 1) {
     return inputLine.includes(pattern);
   } else {
     throw new Error(`Unhandled pattern: ${pattern}`);
@@ -22,3 +26,5 @@ if (matchPattern(inputLine, pattern)) {
 } else {
   process.exit(1);
 }
+
+export default matchPattern

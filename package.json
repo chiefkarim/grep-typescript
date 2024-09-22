@@ -9,6 +9,8 @@
     "fs-extra": "^11.2.0"
   },
   "devDependencies": {
+    "@types/bun": "^1.1.10",
     "@types/node": "^20.12.12"
-  }
+  },
+  "packageManager": "pnpm@8.9.0+sha512.ef8859938e1f0537b9fcf0309044311392f3b38b344176e6cd4fdee21b225524b0ac2a1b08ae2ae2ddd5b3ff4b8ca496d6778e950f3e7c9f555b81325982441c"
 }
