@@ -5,6 +5,9 @@ const pattern = args[3];
 const inputLine: string = await Bun.stdin.text();
 
 function matchPattern(inputLine: string, pattern: string): boolean {
+  if (pattern.startsWith('[^') && pattern.endsWith("]")) {
+    return new RegExp(pattern).test(inputLine)
+  }
   if (/\[.*?\]/.test(pattern)) {
     return new RegExp(pattern).test(inputLine)
   }
